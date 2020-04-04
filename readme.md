@@ -1,7 +1,7 @@
 Simply converts the data from [CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19) into a JSON file. Updated once a day with the main CSV repo.
 
 ### Usage
-Get the JSON file from [https://narek-t.github.io/covid19/timeseries.json](https://narek-t.github.io/covid19/timeseries_global.json)
+Get the JSON file from [https://narek-t.github.io/covid19/timeseries_global.json](https://narek-t.github.io/covid19/timeseries_global.json)
 
 The file contains COVID-19 confirmed, deaths, and recovered cases for every country and every day since 1/22/2020, and the structure looks like this:
 
