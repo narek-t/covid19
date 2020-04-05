@@ -104,7 +104,7 @@ fetch('https://narek-t.github.io/covid19/timeseries_US.json')
     // ...
   });
 ```
-**_NOTE:_**  The US timeseries file is a big one, ~700.000 lines and ~12MB.
+**_NOTE:_**  The US timeseries file is a big one, about 6MB.
 
 
 ### Projects using this dataset
