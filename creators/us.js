@@ -8,7 +8,7 @@ const createUSData = (confirmed, dates, deaths, outputPath) => {
       lat: confirmed[cityName].lat,
       lng: confirmed[cityName].lng,
       state: confirmed[cityName].state,
-      combinatedName: confirmed[cityName].combinatedName.split(',').join(', '),
+      combinatedName: confirmed[cityName].combinatedName,
       population: deaths[cityName] && deaths[cityName].population || null,
       timeSeries: dates.map(date => ({
         date,
