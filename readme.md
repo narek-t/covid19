@@ -1,6 +1,14 @@
-Simply converts the data from [CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19) into a JSON file. Updated once a day with the main CSV repo.
+Simply converts the data from [CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19) to JSON format.
 
-### Usage
+2 JSON files for global and US only covid-19 cases.
+- [Global data](#global-data)
+- [US only data](#us-data)
+
+Updated once a day with the main CSV repo.
+
+## Usage
+
+#### Global data
 Get the JSON file from [https://narek-t.github.io/covid19/timeseries_global.json](https://narek-t.github.io/covid19/timeseries_global.json)
 
 The file contains COVID-19 confirmed, deaths, and recovered cases for every country and every day since 1/22/2020, and the structure looks like this:
@@ -38,7 +46,7 @@ The file contains COVID-19 confirmed, deaths, and recovered cases for every coun
 }
 ```
 
-Fetch and use :)
+Fetch and use.
 
 ```js
 fetch('https://narek-t.github.io/covid19/timeseries_global.json')
@@ -49,4 +57,55 @@ fetch('https://narek-t.github.io/covid19/timeseries_global.json')
   });
 ```
 
+#### US data
+Get the JSON file from [https://narek-t.github.io/covid19/timeseries_US.json](https://narek-t.github.io/covid19/timeseries_US.json)
+
+The file contains COVID-19 confirmed and deaths cases for every city and every day since 1/22/2020, and the structure looks like this:
+
+```
+{
+  "New York": {
+    "lat": "40.767272600000005",
+    "lng": "-73.97152637",
+    "state": "New York",
+    "combinatedName": "New York City,  New York,  US",
+    "population": "5803210",
+    "timeSeries": [
+      {
+        "date": "1/22/20",
+        "confirmed": 0,
+        "deaths": 0
+      },
+      {
+        "date": "1/23/20",
+        "confirmed": 0,
+        "deaths": 0
+      },
+      ...
+      {
+        "date": "4/4/20",
+        "confirmed": 63306,
+        "deaths": 1905
+      },
+      ...
+    ],
+  },
+  ...
+}
+```
+
+Fetch and use.
+
+```js
+fetch('https://narek-t.github.io/covid19/timeseries_US.json')
+  .then(response => response.json())
+  .then(data => {
+    const {lat, lng, state, combinatedName, population, timeSeries} = data['New York'];
+    // ...
+  });
+```
+**_NOTE:_**  The US timeseries file is a big one, ~700.000 lines and ~12MB.
+
+
+### Projects using this dataset
 If you're using this repo in your project feel free to [add it here](https://github.com/narek-t/covid19/edit/master/readme.md).
