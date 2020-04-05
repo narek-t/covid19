@@ -10,14 +10,12 @@ const createGlobalData = (confirmed, dates, deaths, recovered, outputPath) => {
       lng: confirmed[countryName].lng,
       code: flags[countryName] && flags[countryName].code || null,
       flag: flags[countryName] && flags[countryName].flag || null,
-      timeSeries: dates.map(date => {
-        return {
-          date,
-          confirmed: confirmed[countryName] ? confirmed[countryName].timeSeries[date] : null,
-          deaths: deaths[countryName] ? deaths[countryName].timeSeries[date] : null,
-          recovered: recovered[countryName] ? recovered[countryName].timeSeries[date] : null,
-        };
-      }),
+      timeSeries: dates.map(date => ({
+        date,
+        confirmed: confirmed[countryName].timeSeries[date],
+        deaths: deaths[countryName] ? deaths[countryName].timeSeries[date] : null,
+        recovered: recovered[countryName] ? recovered[countryName].timeSeries[date] : null,
+      })),
     };
 
     return acc;

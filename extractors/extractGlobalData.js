@@ -1,7 +1,7 @@
 const fs = require('fs');
 const parse = require('csv-parse/lib/sync');
 
-const extract = (filepath) => {
+const extractGlobalData = (filepath) => {
   const csv = fs.readFileSync(filepath);
   // Skipping Province, country, lat, lng parameters
   const [[,,,, ...dates], ...rows] = parse(csv);
@@ -22,4 +22,4 @@ const extract = (filepath) => {
   return [countryList, dates];
 };
 
-module.exports = extract;
+module.exports = extractGlobalData;

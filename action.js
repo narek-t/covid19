@@ -1,5 +1,6 @@
 const path = require('path');
-const updateData = require('./update');
+const updateGlobalData = require('./updaters/updateGlobal');
+const updateUSData = require('./updaters/updateUS');
 
 const dataPath = path.join(
   process.env.GITHUB_WORKSPACE,
@@ -7,6 +8,8 @@ const dataPath = path.join(
   'csse_covid_19_data',
   'csse_covid_19_time_series'
 );
-const outputPath = path.join(process.env.GITHUB_WORKSPACE, 'main', 'docs', 'timeseries_global.json');
 
-updateData(dataPath, outputPath);
+const getOutputPath = (fileName) => path.join(process.env.GITHUB_WORKSPACE, 'main', 'docs', fileName);
+
+updateGlobalData(dataPath, getOutputPath('timeseries_global.json'));
+updateUSData(dataPath, getOutputPath('timeseries_US.json'))
