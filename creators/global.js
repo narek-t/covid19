@@ -21,7 +21,7 @@ const createGlobalData = (confirmed, dates, deaths, recovered, outputPath) => {
     return acc;
   }, {});
 
-  fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
+  fs.writeFileSync(outputPath, JSON.stringify(result));
 }
 
 module.exports = createGlobalData;

@@ -20,7 +20,7 @@ const createUSData = (confirmed, dates, deaths, outputPath) => {
     return acc;
   }, {});
 
-  fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
+  fs.writeFileSync(outputPath, JSON.stringify(result));
 }
 
 module.exports = createUSData;
