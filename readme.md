@@ -108,4 +108,7 @@ fetch('https://narek-t.github.io/covid19/timeseries_US.json')
 
 
 ### Projects using this dataset
+
+https://narek.dev/covid/
+
 If you're using this repo in your project feel free to [add it here](https://github.com/narek-t/covid19/edit/master/readme.md).
